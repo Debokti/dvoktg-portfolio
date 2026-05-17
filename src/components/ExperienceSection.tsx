@@ -81,66 +81,68 @@ export function ExperienceSection() {
             className="hidden md:block absolute left-[100px] top-[12px] bottom-[12px] w-[3px] rounded-sm"
             style={{ background: 'linear-gradient(180deg, #b265ff, #ff4400)' }}
           />
-          {/* Vertical gradient line — mobile */}
-          <div
-            className="md:hidden absolute left-[8px] top-[12px] bottom-[12px] w-[3px] rounded-sm"
-            style={{ background: 'linear-gradient(180deg, #b265ff, #ff4400)' }}
-          />
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
             {experiences.map((exp, idx) => (
               <div key={exp.id} className="relative">
 
                 {/* ── Mobile layout ── */}
-                <div className="md:hidden pl-8">
-                  {/* Year + dot row */}
-                  <div className="flex items-center gap-2 mb-3">
-                    <div
-                      className="absolute left-[-1px] w-[20px] h-[20px] rounded-full border-[3px] border-[var(--bg)] z-10 shrink-0"
-                      style={{ background: exp.current ? '#10b981' : 'linear-gradient(135deg, #b265ff, #ff4400)' }}
-                    />
-                    <span style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text-muted)' }}>
-                      {exp.year}
-                    </span>
-                    {exp.current && (
-                      <span style={{ fontSize: '0.72rem', padding: '2px 8px', borderRadius: '9999px', background: 'rgba(16,185,129,0.12)', color: '#10b981', border: '1px solid rgba(16,185,129,0.3)', fontWeight: 600 }}>
-                        Current
+                <div className="md:hidden -mx-6 px-6">
+                  {/* Left border line per-entry */}
+                  <div
+                    className="absolute top-0 bottom-0 left-0 w-[3px] rounded-sm"
+                    style={{ background: exp.current ? '#10b981' : 'linear-gradient(180deg, #b265ff, #ff4400)' }}
+                  />
+                  <div className="pl-6">
+                    {/* Year + dot row */}
+                    <div className="flex items-center gap-2 mb-3 relative">
+                      {/* Dot on the left border line */}
+                      <div
+                        className="absolute -left-[21px] top-1/2 -translate-y-1/2 w-[15px] h-[15px] rounded-full border-[2.5px] border-[var(--bg)] z-10"
+                        style={{ background: exp.current ? '#10b981' : 'linear-gradient(135deg, #b265ff, #ff4400)' }}
+                      />
+                      <span style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text-muted)' }}>
+                        {exp.year}
                       </span>
-                    )}
-                  </div>
-                  <div className="exp-card">
-                    {/* Company logo + name */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
-                      <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '4px', border: '1px solid var(--border)', flexShrink: 0 }}>
-                        <img src={exp.logo} alt={exp.company} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-                      </div>
-                      <div>
-                        <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text)' }}>{exp.company}</h3>
-                        <p style={{ fontSize: '0.85rem', color: exp.color, fontWeight: 600 }}>{exp.role}</p>
-                      </div>
+                      {exp.current && (
+                        <span style={{ fontSize: '0.68rem', padding: '2px 8px', borderRadius: '9999px', background: 'rgba(16,185,129,0.12)', color: '#10b981', border: '1px solid rgba(16,185,129,0.3)', fontWeight: 600 }}>
+                          Current
+                        </span>
+                      )}
                     </div>
-                    <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '12px' }}>{exp.period} · {exp.client}</p>
-                    {exp.awards && (
-                      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '12px' }}>
-                        {exp.awards.map((a) => (
-                          <span key={a} style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.72rem', padding: '3px 10px', borderRadius: '9999px', background: 'rgba(255,161,0,0.1)', color: '#ffa100', border: '1px solid rgba(255,161,0,0.25)', fontWeight: 600 }}>
-                            <Award size={10} />{a}
-                          </span>
+                    <div className="exp-card">
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+                        <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '4px', border: '1px solid var(--border)', flexShrink: 0 }}>
+                          <img src={exp.logo} alt={exp.company} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                        </div>
+                        <div>
+                          <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text)' }}>{exp.company}</h3>
+                          <p style={{ fontSize: '0.85rem', color: exp.color, fontWeight: 600 }}>{exp.role}</p>
+                        </div>
+                      </div>
+                      <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '12px' }}>{exp.period} · {exp.client}</p>
+                      {exp.awards && (
+                        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '12px' }}>
+                          {exp.awards.map((a) => (
+                            <span key={a} style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.72rem', padding: '3px 10px', borderRadius: '9999px', background: 'rgba(255,161,0,0.1)', color: '#ffa100', border: '1px solid rgba(255,161,0,0.25)', fontWeight: 600 }}>
+                              <Award size={10} />{a}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                      <ul style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                        {exp.bullets.map((b, i) => (
+                          <li key={i} style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
+                            <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: exp.color, flexShrink: 0, marginTop: '7px' }} />
+                            <p style={{ fontSize: '0.83rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>{b}</p>
+                          </li>
+                        ))}
+                      </ul>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '12px' }}>
+                        {exp.tags.map((tag) => (
+                          <span key={tag} style={{ fontSize: '0.72rem', padding: '3px 9px', borderRadius: '9999px', background: 'var(--pill-bg)', color: 'var(--text-muted)', fontWeight: 500 }}>{tag}</span>
                         ))}
                       </div>
-                    )}
-                    <ul style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                      {exp.bullets.map((b, i) => (
-                        <li key={i} style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
-                          <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: exp.color, flexShrink: 0, marginTop: '7px' }} />
-                          <p style={{ fontSize: '0.83rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>{b}</p>
-                        </li>
-                      ))}
-                    </ul>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '12px' }}>
-                      {exp.tags.map((tag) => (
-                        <span key={tag} style={{ fontSize: '0.72rem', padding: '3px 9px', borderRadius: '9999px', background: 'var(--pill-bg)', color: 'var(--text-muted)', fontWeight: 500 }}>{tag}</span>
-                      ))}
                     </div>
                   </div>
                 </div>

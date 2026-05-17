@@ -75,19 +75,12 @@ export function HeroSection() {
         </p>
 
         {/* Three-column layout */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr auto 1fr',
-            gap: '32px',
-            alignItems: 'center',
-          }}
-        >
+        <div className="flex flex-col md:grid md:grid-cols-[1fr_auto_1fr] gap-12 md:gap-8 items-center">
           {/* Left: Location + Quote */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', alignItems: 'flex-end' }}>
+          <div className="flex flex-col gap-6 md:gap-8 items-center md:items-end order-2 md:order-1 text-center md:text-right">
             {/* Location */}
-            <div style={{ textAlign: 'right' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'flex-end', marginBottom: '4px' }}>
+            <div>
+              <div className="flex items-center gap-2 justify-center md:justify-end mb-1">
                 <StarIcon size={20} color="#b265ff" />
                 <span style={{ fontWeight: 700, fontSize: '1.15rem', color: 'var(--text)' }}>
                   Kolkata, India
@@ -97,7 +90,7 @@ export function HeroSection() {
             </div>
 
             {/* Quote */}
-            <div style={{ maxWidth: '240px', textAlign: 'right' }}>
+            <div className="max-w-[240px]">
               <div style={{ fontSize: '2rem', color: 'var(--text-muted)', lineHeight: 0.5, marginBottom: '8px' }}>&ldquo;&rdquo;</div>
               <p style={{ fontSize: '1rem', lineHeight: 1.65, color: 'var(--text)', fontWeight: 400 }}>
                 Bridging{' '}
@@ -116,7 +109,7 @@ export function HeroSection() {
           </div>
 
           {/* Center: Profile Photo */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative' }}>
+          <div className="flex flex-col items-center relative order-1 md:order-2">
             {/* Decorative stars */}
             <div className="deco float" style={{ top: '-12px', left: '-20px' }}>
               <StarIcon size={22} color="#b265ff" />
@@ -177,9 +170,9 @@ export function HeroSection() {
           </div>
 
           {/* Right: Experience stats + tagline */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', alignItems: 'flex-start' }}>
+          <div className="flex flex-col gap-6 items-center md:items-start order-3 text-center md:text-left">
             {/* Stats */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div className="flex flex-col gap-4">
               {[
                 { value: '7.5+', label: 'Years Experience' },
                 { value: '5+', label: 'Banking Clients' },

@@ -81,30 +81,17 @@ export function EducationSection() {
         <div style={{ position: 'relative', marginBottom: '60px' }}>
           {/* Vertical line */}
           <div
+            className="absolute left-[20px] md:left-[108px] top-[10px] bottom-[10px] w-[3px] rounded-sm"
             style={{
-              position: 'absolute',
-              left: '108px',
-              top: '10px',
-              bottom: '10px',
-              width: '3px',
               background: 'linear-gradient(180deg, #b265ff, #ff4400)',
-              borderRadius: '2px',
             }}
           />
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '44px' }}>
             {education.map((edu, idx) => (
-              <div key={idx} style={{ display: 'flex', gap: '0', position: 'relative' }}>
+              <div key={idx} className="flex flex-col md:flex-row gap-0 items-start relative">
                 {/* Year */}
-                <div
-                  style={{
-                    width: '104px',
-                    textAlign: 'right',
-                    paddingRight: '20px',
-                    paddingTop: '4px',
-                    flexShrink: 0,
-                  }}
-                >
+                <div className="md:w-[104px] text-left md:text-right pl-[44px] md:pl-0 md:pr-[20px] pt-0 md:pt-[4px] shrink-0 mb-1 md:mb-0">
                   <span style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text-muted)', lineHeight: 1.4 }}>
                     {edu.year}
                   </span>
@@ -112,21 +99,14 @@ export function EducationSection() {
 
                 {/* Dot */}
                 <div
+                  className="absolute left-[12.5px] md:left-[100px] top-[2px] md:top-[4px] w-[18px] h-[18px] rounded-full border-[3px] border-[var(--bg)] z-10 shrink-0"
                   style={{
-                    position: 'absolute',
-                    left: '100px',
-                    top: '4px',
-                    width: '18px',
-                    height: '18px',
-                    borderRadius: '50%',
                     background: 'linear-gradient(135deg, #b265ff, #ff4400)',
-                    border: '3px solid var(--bg)',
-                    zIndex: 1,
                   }}
                 />
 
                 {/* Content */}
-                <div style={{ paddingLeft: '28px', flex: 1 }}>
+                <div className="pl-[44px] md:pl-[28px] flex-1 w-full">
                   <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text)', marginBottom: '4px' }}>
                     {edu.degree}
                   </h3>

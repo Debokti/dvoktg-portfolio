@@ -78,30 +78,17 @@ export function ExperienceSection() {
         <div style={{ position: 'relative' }}>
           {/* Vertical gradient line */}
           <div
+            className="absolute left-[20px] md:left-[100px] top-[12px] bottom-[12px] w-[3px] rounded-sm"
             style={{
-              position: 'absolute',
-              left: '100px',
-              top: '12px',
-              bottom: '12px',
-              width: '3px',
               background: 'linear-gradient(180deg, #b265ff, #ff4400)',
-              borderRadius: '2px',
             }}
           />
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
             {experiences.map((exp, idx) => (
-              <div key={exp.id} style={{ display: 'flex', gap: '0', alignItems: 'flex-start', position: 'relative' }}>
+              <div key={exp.id} className="flex flex-col md:flex-row gap-0 items-start relative">
                 {/* Year label */}
-                <div
-                  style={{
-                    width: '96px',
-                    textAlign: 'right',
-                    paddingRight: '16px',
-                    paddingTop: '10px',
-                    flexShrink: 0,
-                  }}
-                >
+                <div className="md:w-[96px] text-left md:text-right pl-[44px] md:pl-0 md:pr-[16px] pt-0 md:pt-[10px] shrink-0 mb-2 md:mb-0">
                   <span
                     style={{
                       fontSize: '0.78rem',
@@ -116,22 +103,14 @@ export function ExperienceSection() {
 
                 {/* Dot on timeline */}
                 <div
+                  className="absolute left-[11.5px] md:left-[91px] top-[2px] md:top-[10px] w-[20px] h-[20px] rounded-full border-[3px] border-[var(--bg)] z-10 shrink-0"
                   style={{
-                    position: 'absolute',
-                    left: '91px',
-                    top: '10px',
-                    width: '20px',
-                    height: '20px',
-                    borderRadius: '50%',
                     background: exp.current ? '#10b981' : `linear-gradient(135deg, #b265ff, #ff4400)`,
-                    border: '3px solid var(--bg)',
-                    zIndex: 1,
-                    flexShrink: 0,
                   }}
                 />
 
                 {/* Content */}
-                <div style={{ paddingLeft: '28px', flex: 1 }}>
+                <div className="pl-[44px] md:pl-[28px] flex-1 w-full">
                   <div className="exp-card">
                     {/* Header */}
                     <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '16px', marginBottom: '16px', flexWrap: 'wrap' }}>

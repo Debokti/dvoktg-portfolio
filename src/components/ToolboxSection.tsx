@@ -155,19 +155,19 @@ export function ToolboxSection() {
       style={{ background: 'var(--bg)', borderTop: '1px solid var(--border)', position: 'relative', overflow: 'hidden' }}
     >
       {/* Decorative floating shapes */}
-      <div className="deco float-slow" style={{ left: '3%', top: '30%', opacity: 0.7 }}>
+      <div className="deco float-slow hidden md:block" style={{ left: '3%', top: '30%', opacity: 0.7 }}>
         <DonutShape />
       </div>
-      <div className="deco float" style={{ right: '5%', top: '20%' }}>
+      <div className="deco float hidden md:block" style={{ right: '5%', top: '20%' }}>
         <SunBurst color="#ffa100" size={52} />
       </div>
-      <div className="deco float-slow" style={{ left: '8%', bottom: '20%' }}>
+      <div className="deco float-slow hidden md:block" style={{ left: '8%', bottom: '20%' }}>
         <SunBurst color="#66c2e0" size={38} />
       </div>
-      <div className="deco float" style={{ right: '3%', bottom: '25%' }}>
+      <div className="deco float hidden md:block" style={{ right: '3%', bottom: '25%' }}>
         <PillShape />
       </div>
-      <div className="deco" style={{ right: '7%', bottom: '10%', opacity: 0.5 }}>
+      <div className="deco hidden md:block" style={{ right: '7%', bottom: '10%', opacity: 0.5 }}>
         <XMark />
       </div>
 

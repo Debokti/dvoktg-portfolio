@@ -132,14 +132,24 @@ export function HeroSection() {
             </div>
 
             {/* Arch frame */}
-            <div style={{ position: 'relative', width: '210px', height: '270px' }}>
-              {/* Purple arch bg */}
+            <div style={{ position: 'relative', width: '220px', height: '278px' }}>
+              {/* Outer arch border — subtle gradient ring */}
               <div
                 style={{
                   position: 'absolute',
                   inset: 0,
-                  borderRadius: '105px 105px 0 0',
-                  background: 'linear-gradient(180deg, #b265ff, #7c3aed)',
+                  borderRadius: '110px 110px 0 0',
+                  background: 'linear-gradient(160deg, rgba(178,101,255,0.55) 0%, rgba(150,150,180,0.2) 50%, rgba(255,100,0,0.35) 100%)',
+                  padding: '7px',
+                }}
+              />
+              {/* Inner arch background — neutral surface */}
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: '7px',
+                  borderRadius: '103px 103px 0 0',
+                  background: 'var(--pill-bg)',
                 }}
               />
               {/* Profile Image */}
@@ -151,10 +161,11 @@ export function HeroSection() {
                   bottom: 0,
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  width: '190px',
-                  height: '305px',
-                  borderRadius: '95px 95px 0 0',
+                  width: '200px',
+                  height: '314px',
+                  borderRadius: '100px 100px 0 0',
                   objectFit: 'cover',
+                  objectPosition: 'top center',
                 }}
               />
             </div>

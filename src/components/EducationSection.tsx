@@ -6,16 +6,12 @@ const education = [
   {
     year: '2013 - 2017',
     degree: 'B.Tech — Electronics & Communication Engineering',
-    institution: 'Academy of Technology',
     location: 'West Bengal, India',
-    description: 'Pursued a full-time undergraduate degree in Electronics & Communication Engineering, building a strong foundation in digital systems, signal processing, and programming fundamentals that underpins my software engineering career.',
   },
   {
     year: '2012 - 2013',
     degree: 'ISC Science',
-    institution: "St. Augustine's Day School",
     location: 'West Bengal, India',
-    description: "Completed higher secondary schooling in Science stream with a focus on Mathematics, Physics, and Computer Science.",
   },
 ]
 
@@ -134,14 +130,8 @@ export function EducationSection() {
                   <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text)', marginBottom: '4px' }}>
                     {edu.degree}
                   </h3>
-                  <p style={{ fontSize: '0.875rem', color: '#b265ff', fontWeight: 600, marginBottom: '2px' }}>
-                    {edu.institution}
-                  </p>
-                  <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '8px' }}>
+                  <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
                     {edu.location}
-                  </p>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
-                    {edu.description}
                   </p>
                 </div>
               </div>

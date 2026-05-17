@@ -54,9 +54,9 @@ const categories = [
       { name: 'Jenkins', icon: techIcons.Jenkins },
       { name: 'GitHub', icon: techIcons.GitHub },
       { name: 'Vercel', icon: techIcons.Vercel },
-      { name: 'Harness', icon: '/harness.png' },
+      { name: 'Harness', emoji: '⚙️' },
       { name: 'Lightspeed', emoji: '⚡' },
-      { name: 'Render', icon: '/render.png' },
+      { name: 'Render', emoji: '☁️' },
     ],
   },
   {
@@ -75,8 +75,8 @@ const categories = [
     label: 'CMS & Hybrid',
     skills: [
       { name: 'Apache Cordova', icon: techIcons.Cordova },
-      { name: 'IBM MobileFirst', icon: '/ibm-mobilefirst.jpg' },
-      { name: 'Dynamic Yield', icon: '/dynamic-yield.png' },
+      { name: 'IBM MobileFirst', emoji: '📱' },
+      { name: 'Dynamic Yield', emoji: '🎯' },
     ],
   },
 ]

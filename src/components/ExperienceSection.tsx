@@ -7,6 +7,7 @@ const experiences = [
     id: 'tcs',
     company: 'Tata Consultancy Services',
     abbr: 'TCS',
+    logo: '/tcs.jpg',
     role: 'Offshore Lead & Web Developer',
     period: 'Nov 2024 — Present',
     year: '2024 - Now',
@@ -25,6 +26,7 @@ const experiences = [
     id: 'capgemini',
     company: 'Capgemini',
     abbr: 'CAP',
+    logo: '/capgemini.png',
     role: 'Frontend Developer',
     period: 'Jan 2018 — Nov 2024',
     year: '2018 - 2024',
@@ -35,7 +37,7 @@ const experiences = [
     bullets: [
       'Engineered large-scale enterprise applications with multi-module Angular architecture for major banking clients including Synchrony Financial, Fiserv Inc., HSBC, and PNB MetLife.',
       'Executed mobile-first development using Apache Cordova and IBM MobileFirst for hybrid banking applications.',
-      'Implemented automated testing with Jasmine and Karma, significantly improving code coverage.',
+      'Engineered automated testing workflows to ensure resilient and robust code.',
       'Recognized with the "Aces of Capgemini" award and certified as a Level 0 Architect.',
     ],
     tags: ['Angular', 'Jasmine/Karma', 'Cordova', 'MobileFirst', 'HSBC', 'Fiserv'],
@@ -134,22 +136,32 @@ export function ExperienceSection() {
                     {/* Header */}
                     <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '16px', marginBottom: '16px', flexWrap: 'wrap' }}>
                       <div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '4px' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap', marginBottom: '4px' }}>
                           <div
                             style={{
-                              width: '36px',
-                              height: '36px',
+                              width: '40px',
+                              height: '40px',
                               borderRadius: '8px',
-                              background: `${exp.color}18`,
-                              color: exp.color,
+                              background: '#ffffff',
                               display: 'flex',
                               alignItems: 'center',
                               justifyContent: 'center',
-                              fontSize: '0.7rem',
-                              fontWeight: 800,
+                              padding: '4px',
+                              boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
+                              border: '1px solid var(--border)',
+                              flexShrink: 0,
                             }}
                           >
-                            {exp.abbr}
+                            <img
+                              src={exp.logo}
+                              alt={exp.company}
+                              style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'contain',
+                                borderRadius: '4px',
+                              }}
+                            />
                           </div>
                           <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text)' }}>
                             {exp.company}

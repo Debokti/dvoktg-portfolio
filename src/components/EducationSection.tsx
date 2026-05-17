@@ -79,41 +79,61 @@ export function EducationSection() {
 
         {/* Timeline */}
         <div style={{ position: 'relative', marginBottom: '60px' }}>
-          {/* Vertical line */}
+          {/* Vertical line — desktop only */}
           <div
-            className="absolute left-[20px] md:left-[108px] top-[10px] bottom-[10px] w-[3px] rounded-sm"
-            style={{
-              background: 'linear-gradient(180deg, #b265ff, #ff4400)',
-            }}
+            className="hidden md:block absolute left-[108px] top-[10px] bottom-[10px] w-[3px] rounded-sm"
+            style={{ background: 'linear-gradient(180deg, #b265ff, #ff4400)' }}
+          />
+          {/* Vertical line — mobile only */}
+          <div
+            className="md:hidden absolute left-[8px] top-[10px] bottom-[10px] w-[3px] rounded-sm"
+            style={{ background: 'linear-gradient(180deg, #b265ff, #ff4400)' }}
           />
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '44px' }}>
             {education.map((edu, idx) => (
-              <div key={idx} className="flex flex-col md:flex-row gap-0 items-start relative">
-                {/* Year */}
-                <div className="md:w-[104px] text-left md:text-right pl-[44px] md:pl-0 md:pr-[20px] pt-0 md:pt-[4px] shrink-0 mb-1 md:mb-0">
-                  <span style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text-muted)', lineHeight: 1.4 }}>
-                    {edu.year}
-                  </span>
-                </div>
+              <div key={idx} className="relative">
 
-                {/* Dot */}
-                <div
-                  className="absolute left-[12.5px] md:left-[100px] top-[2px] md:top-[4px] w-[18px] h-[18px] rounded-full border-[3px] border-[var(--bg)] z-10 shrink-0"
-                  style={{
-                    background: 'linear-gradient(135deg, #b265ff, #ff4400)',
-                  }}
-                />
-
-                {/* Content */}
-                <div className="pl-[44px] md:pl-[28px] flex-1 w-full">
+                {/* ── Mobile layout ── */}
+                <div className="md:hidden pl-8">
+                  {/* Year row with dot */}
+                  <div className="flex items-center gap-2 mb-1">
+                    <div
+                      className="absolute left-[-1px] w-[18px] h-[18px] rounded-full border-[3px] border-[var(--bg)] z-10 shrink-0"
+                      style={{ background: 'linear-gradient(135deg, #b265ff, #ff4400)' }}
+                    />
+                    <span style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text-muted)' }}>
+                      {edu.year}
+                    </span>
+                  </div>
                   <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text)', marginBottom: '4px' }}>
                     {edu.degree}
                   </h3>
-                  <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                    {edu.location}
-                  </p>
+                  <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{edu.location}</p>
                 </div>
+
+                {/* ── Desktop layout ── */}
+                <div className="hidden md:flex flex-row gap-0 items-start">
+                  {/* Year */}
+                  <div style={{ width: '104px', textAlign: 'right', paddingRight: '20px', paddingTop: '4px', flexShrink: 0 }}>
+                    <span style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text-muted)', lineHeight: 1.4 }}>
+                      {edu.year}
+                    </span>
+                  </div>
+                  {/* Dot */}
+                  <div
+                    className="absolute left-[100px] top-[4px] w-[18px] h-[18px] rounded-full border-[3px] border-[var(--bg)] z-10 shrink-0"
+                    style={{ background: 'linear-gradient(135deg, #b265ff, #ff4400)' }}
+                  />
+                  {/* Content */}
+                  <div style={{ paddingLeft: '28px', flex: 1 }}>
+                    <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text)', marginBottom: '4px' }}>
+                      {edu.degree}
+                    </h3>
+                    <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{edu.location}</p>
+                  </div>
+                </div>
+
               </div>
             ))}
           </div>

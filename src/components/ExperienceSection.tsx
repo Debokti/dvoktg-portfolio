@@ -76,165 +76,141 @@ export function ExperienceSection() {
 
         {/* Timeline */}
         <div style={{ position: 'relative' }}>
-          {/* Vertical gradient line */}
+          {/* Vertical gradient line — desktop */}
           <div
-            className="absolute left-[20px] md:left-[100px] top-[12px] bottom-[12px] w-[3px] rounded-sm"
-            style={{
-              background: 'linear-gradient(180deg, #b265ff, #ff4400)',
-            }}
+            className="hidden md:block absolute left-[100px] top-[12px] bottom-[12px] w-[3px] rounded-sm"
+            style={{ background: 'linear-gradient(180deg, #b265ff, #ff4400)' }}
+          />
+          {/* Vertical gradient line — mobile */}
+          <div
+            className="md:hidden absolute left-[8px] top-[12px] bottom-[12px] w-[3px] rounded-sm"
+            style={{ background: 'linear-gradient(180deg, #b265ff, #ff4400)' }}
           />
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
             {experiences.map((exp, idx) => (
-              <div key={exp.id} className="flex flex-col md:flex-row gap-0 items-start relative">
-                {/* Year label */}
-                <div className="md:w-[96px] text-left md:text-right pl-[44px] md:pl-0 md:pr-[16px] pt-0 md:pt-[10px] shrink-0 mb-2 md:mb-0">
-                  <span
-                    style={{
-                      fontSize: '0.78rem',
-                      fontWeight: 600,
-                      color: 'var(--text-muted)',
-                      lineHeight: 1.4,
-                    }}
-                  >
-                    {exp.year}
-                  </span>
-                </div>
+              <div key={exp.id} className="relative">
 
-                {/* Dot on timeline */}
-                <div
-                  className="absolute left-[11.5px] md:left-[91px] top-[2px] md:top-[10px] w-[20px] h-[20px] rounded-full border-[3px] border-[var(--bg)] z-10 shrink-0"
-                  style={{
-                    background: exp.current ? '#10b981' : `linear-gradient(135deg, #b265ff, #ff4400)`,
-                  }}
-                />
-
-                {/* Content */}
-                <div className="pl-[44px] md:pl-[28px] flex-1 w-full">
+                {/* ── Mobile layout ── */}
+                <div className="md:hidden pl-8">
+                  {/* Year + dot row */}
+                  <div className="flex items-center gap-2 mb-3">
+                    <div
+                      className="absolute left-[-1px] w-[20px] h-[20px] rounded-full border-[3px] border-[var(--bg)] z-10 shrink-0"
+                      style={{ background: exp.current ? '#10b981' : 'linear-gradient(135deg, #b265ff, #ff4400)' }}
+                    />
+                    <span style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text-muted)' }}>
+                      {exp.year}
+                    </span>
+                    {exp.current && (
+                      <span style={{ fontSize: '0.72rem', padding: '2px 8px', borderRadius: '9999px', background: 'rgba(16,185,129,0.12)', color: '#10b981', border: '1px solid rgba(16,185,129,0.3)', fontWeight: 600 }}>
+                        Current
+                      </span>
+                    )}
+                  </div>
                   <div className="exp-card">
-                    {/* Header */}
-                    <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '16px', marginBottom: '16px', flexWrap: 'wrap' }}>
+                    {/* Company logo + name */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+                      <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '4px', border: '1px solid var(--border)', flexShrink: 0 }}>
+                        <img src={exp.logo} alt={exp.company} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                      </div>
                       <div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap', marginBottom: '4px' }}>
-                          <div
-                            style={{
-                              width: '40px',
-                              height: '40px',
-                              borderRadius: '8px',
-                              background: '#ffffff',
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              padding: '4px',
-                              boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
-                              border: '1px solid var(--border)',
-                              flexShrink: 0,
-                            }}
-                          >
-                            <img
-                              src={exp.logo}
-                              alt={exp.company}
-                              style={{
-                                width: '100%',
-                                height: '100%',
-                                objectFit: 'contain',
-                                borderRadius: '4px',
-                              }}
-                            />
-                          </div>
-                          <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text)' }}>
-                            {exp.company}
-                          </h3>
-                          {exp.current && (
-                            <span
-                              style={{
-                                fontSize: '0.72rem',
-                                padding: '3px 10px',
-                                borderRadius: '9999px',
-                                background: 'rgba(16,185,129,0.12)',
-                                color: '#10b981',
-                                border: '1px solid rgba(16,185,129,0.3)',
-                                fontWeight: 600,
-                              }}
-                            >
-                              Current
-                            </span>
-                          )}
-                        </div>
-                        <p style={{ fontSize: '0.9rem', color: exp.color, fontWeight: 600 }}>{exp.role}</p>
-                        <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '2px' }}>
-                          {exp.period} · {exp.client}
-                        </p>
+                        <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text)' }}>{exp.company}</h3>
+                        <p style={{ fontSize: '0.85rem', color: exp.color, fontWeight: 600 }}>{exp.role}</p>
                       </div>
                     </div>
-
-                    {/* Awards */}
+                    <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '12px' }}>{exp.period} · {exp.client}</p>
                     {exp.awards && (
-                      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '16px' }}>
+                      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '12px' }}>
                         {exp.awards.map((a) => (
-                          <span
-                            key={a}
-                            style={{
-                              display: 'flex',
-                              alignItems: 'center',
-                              gap: '6px',
-                              fontSize: '0.75rem',
-                              padding: '4px 12px',
-                              borderRadius: '9999px',
-                              background: 'rgba(255,161,0,0.1)',
-                              color: '#ffa100',
-                              border: '1px solid rgba(255,161,0,0.25)',
-                              fontWeight: 600,
-                            }}
-                          >
-                            <Award size={11} />
-                            {a}
+                          <span key={a} style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.72rem', padding: '3px 10px', borderRadius: '9999px', background: 'rgba(255,161,0,0.1)', color: '#ffa100', border: '1px solid rgba(255,161,0,0.25)', fontWeight: 600 }}>
+                            <Award size={10} />{a}
                           </span>
                         ))}
                       </div>
                     )}
-
-                    {/* Bullet points */}
                     <ul style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                       {exp.bullets.map((b, i) => (
-                        <li key={i} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                          <div
-                            style={{
-                              width: '6px',
-                              height: '6px',
-                              borderRadius: '50%',
-                              background: exp.color,
-                              flexShrink: 0,
-                              marginTop: '7px',
-                            }}
-                          />
-                          <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>{b}</p>
+                        <li key={i} style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
+                          <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: exp.color, flexShrink: 0, marginTop: '7px' }} />
+                          <p style={{ fontSize: '0.83rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>{b}</p>
                         </li>
                       ))}
                     </ul>
-
-                    {/* Tags */}
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '16px' }}>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '12px' }}>
                       {exp.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          style={{
-                            fontSize: '0.75rem',
-                            padding: '4px 10px',
-                            borderRadius: '9999px',
-                            background: 'var(--pill-bg)',
-                            color: 'var(--text-muted)',
-                            fontWeight: 500,
-                          }}
-                        >
-                          {tag}
-                        </span>
+                        <span key={tag} style={{ fontSize: '0.72rem', padding: '3px 9px', borderRadius: '9999px', background: 'var(--pill-bg)', color: 'var(--text-muted)', fontWeight: 500 }}>{tag}</span>
                       ))}
                     </div>
                   </div>
                 </div>
+
+                {/* ── Desktop layout ── */}
+                <div className="hidden md:flex flex-row gap-0 items-start">
+                  {/* Year label */}
+                  <div style={{ width: '96px', textAlign: 'right', paddingRight: '16px', paddingTop: '10px', flexShrink: 0 }}>
+                    <span style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text-muted)', lineHeight: 1.4 }}>{exp.year}</span>
+                  </div>
+
+                  {/* Dot on timeline */}
+                  <div
+                    className="absolute left-[91px] top-[10px] w-[20px] h-[20px] rounded-full border-[3px] border-[var(--bg)] z-10"
+                    style={{ background: exp.current ? '#10b981' : `linear-gradient(135deg, #b265ff, #ff4400)` }}
+                  />
+
+                  {/* Content */}
+                  <div style={{ paddingLeft: '28px', flex: 1 }}>
+                    <div className="exp-card">
+                      {/* Header */}
+                      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '16px', marginBottom: '16px', flexWrap: 'wrap' }}>
+                        <div>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap', marginBottom: '4px' }}>
+                            <div style={{ width: '40px', height: '40px', borderRadius: '8px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '4px', boxShadow: '0 2px 8px rgba(0,0,0,0.06)', border: '1px solid var(--border)', flexShrink: 0 }}>
+                              <img src={exp.logo} alt={exp.company} style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '4px' }} />
+                            </div>
+                            <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text)' }}>{exp.company}</h3>
+                            {exp.current && (
+                              <span style={{ fontSize: '0.72rem', padding: '3px 10px', borderRadius: '9999px', background: 'rgba(16,185,129,0.12)', color: '#10b981', border: '1px solid rgba(16,185,129,0.3)', fontWeight: 600 }}>
+                                Current
+                              </span>
+                            )}
+                          </div>
+                          <p style={{ fontSize: '0.9rem', color: exp.color, fontWeight: 600 }}>{exp.role}</p>
+                          <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '2px' }}>{exp.period} · {exp.client}</p>
+                        </div>
+                      </div>
+
+                      {exp.awards && (
+                        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '16px' }}>
+                          {exp.awards.map((a) => (
+                            <span key={a} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem', padding: '4px 12px', borderRadius: '9999px', background: 'rgba(255,161,0,0.1)', color: '#ffa100', border: '1px solid rgba(255,161,0,0.25)', fontWeight: 600 }}>
+                              <Award size={11} />{a}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      <ul style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                        {exp.bullets.map((b, i) => (
+                          <li key={i} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+                            <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: exp.color, flexShrink: 0, marginTop: '7px' }} />
+                            <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>{b}</p>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '16px' }}>
+                        {exp.tags.map((tag) => (
+                          <span key={tag} style={{ fontSize: '0.75rem', padding: '4px 10px', borderRadius: '9999px', background: 'var(--pill-bg)', color: 'var(--text-muted)', fontWeight: 500 }}>{tag}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             ))}
+
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect } from 'react'
 import { Navbar } from '@/components/Navbar'
 import { HeroSection } from '@/components/HeroSection'
 import { ToolboxSection } from '@/components/ToolboxSection'
@@ -13,6 +14,11 @@ import { LinkedInIcon } from '@/components/LinkedInIcon'
 import { Mail } from 'lucide-react'
 
 export default function Home() {
+  useEffect(() => {
+    // Fire and forget notification - won't block page load
+    fetch('/api/notify', { method: 'POST' }).catch(console.error)
+  }, [])
+
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
       <Navbar />

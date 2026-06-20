@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Download, Mail, Eye, X } from 'lucide-react'
 import { LinkedInIcon } from './LinkedInIcon'
+import { DiscordIcon } from './DiscordIcon'
 
 // Star SVG decoration
 const StarIcon = ({ size = 24, color = '#b265ff' }: { size?: number; color?: string }) => (
@@ -86,10 +87,10 @@ export function HeroSection() {
               <div className="flex items-center gap-3 justify-center md:justify-end mb-1">
                 <StarIcon size={20} color="#b265ff" />
                 <span style={{ fontWeight: 700, fontSize: '1.15rem', color: 'var(--text)' }}>
-                  Kolkata, India
+                  Bangalore, India
                 </span>
               </div>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>West Bengal · BFSI Specialist</p>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Karnataka · BFSI Specialist</p>
             </div>
 
             {/* Quote */}
@@ -227,9 +228,13 @@ export function HeroSection() {
             <Eye size={16} />
             View Resume
           </button>
-          <a href="https://linkedin.com/in/debokti-ghosh" target="_blank" rel="noopener noreferrer" className="btn-pill-gradient">
+          <a href="https://linkedin.com/in/debokti-ghosh" target="_blank" rel="noopener noreferrer" className="btn-pill-outline">
             <LinkedInIcon size={16} />
             LinkedIn
+          </a>
+          <a href="https://discordapp.com/users/devoktg" target="_blank" rel="noopener noreferrer" className="btn-pill-outline">
+            <DiscordIcon size={16} />
+            Discord
           </a>
           <a href="mailto:debokti@gmail.com" className="btn-pill-outline">
             <Mail size={16} />

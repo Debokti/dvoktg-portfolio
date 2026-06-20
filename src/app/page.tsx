@@ -12,6 +12,7 @@ import { AboutSection } from '@/components/AboutSection'
 import { Heart } from 'lucide-react'
 import { LinkedInIcon } from '@/components/LinkedInIcon'
 import { Mail } from 'lucide-react'
+import { DiscordIcon } from '@/components/DiscordIcon'
 
 export default function Home() {
   useEffect(() => {
@@ -56,7 +57,7 @@ export default function Home() {
             <span style={{ color: '#b265ff' }}>.</span>
           </p>
           <p style={{ fontSize: '0.8rem', color: '#6b7280', marginBottom: '20px' }}>
-            Full-Stack Software Engineer · Kolkata, India
+            Full-Stack Software Engineer · Bangalore, India
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginBottom: '20px' }}>
             <a
@@ -79,6 +80,16 @@ export default function Home() {
               onMouseLeave={(e) => ((e.target as HTMLElement).style.color = '#9ca3af')}
             >
               <Mail size={18} />
+            </a>
+            <a
+              href="https://discordapp.com/users/devoktg"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#9ca3af', transition: 'color 0.2s' }}
+              onMouseEnter={(e) => ((e.target as HTMLElement).style.color = '#b265ff')}
+              onMouseLeave={(e) => ((e.target as HTMLElement).style.color = '#9ca3af')}
+            >
+              <DiscordIcon size={20} />
             </a>
           </div>
           <p style={{ fontSize: '0.75rem', color: '#4b5563', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>

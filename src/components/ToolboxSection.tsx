@@ -63,11 +63,12 @@ const categories = [
     id: 'ai',
     label: 'Data & AI',
     skills: [
+      { name: 'Antigravity CLI / 2.0', icon: '/assets/antigravity_icon.jpg' },
+      { name: 'Claude Code', icon: '/assets/claude_icon.png' },
+      { name: 'Gemini CLI', icon: '/assets/gemini_cli_icon.jpg' },
+      { name: 'Google AI Studio', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg' },
       { name: 'Pandas', icon: techIcons.Pandas },
-      { name: 'Antigravity AI', emoji: '🤖' },
       { name: 'MCP', emoji: '🔌' },
-      { name: 'Data Wrangling', emoji: '🔧' },
-      { name: 'EDA', emoji: '📈' },
     ],
   },
   {
@@ -199,9 +200,12 @@ export function ToolboxSection() {
         {/* Skills Grid */}
         <div
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
             gap: '12px',
+            maxWidth: '900px',
+            margin: '0 auto',
           }}
         >
           {current.skills.map((skill) => (

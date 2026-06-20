@@ -4,7 +4,7 @@ export function AboutSection() {
   const highlights = [
     { label: 'Angular', color: '#dd0031' },
     { label: 'Financial Services', color: '#b265ff' },
-    { label: 'Citibank ICG', color: '#2563eb' },
+    { label: 'Citi ICG', color: '#2563eb' },
     { label: 'AI integrations', color: '#ff4400' },
   ]
 
@@ -94,6 +94,10 @@ export function AboutSection() {
             'Python / FastAPI',
             'Module Federation',
             'Agent-Driven Dev',
+            'Claude Code',
+            'Antigravity CLI / 2.0',
+            'Gemini CLI',
+            'Google AI Studio',
             'BFSI Domain',
             'Trade Finance',
             'Micro-frontends',

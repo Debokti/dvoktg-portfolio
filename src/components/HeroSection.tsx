@@ -1,6 +1,7 @@
 'use client'
 
-import { Download, Mail } from 'lucide-react'
+import { useState } from 'react'
+import { Download, Mail, Eye, X } from 'lucide-react'
 import { LinkedInIcon } from './LinkedInIcon'
 
 // Star SVG decoration
@@ -30,6 +31,8 @@ const CurvedArrow = () => (
 )
 
 export function HeroSection() {
+  const [isCvModalOpen, setIsCvModalOpen] = useState(false)
+
   return (
     <section
       id="hero"
@@ -220,10 +223,10 @@ export function HeroSection() {
 
         {/* CTA Buttons */}
         <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', marginTop: '52px', flexWrap: 'wrap' }}>
-          <a href="/resume.pdf" download className="btn-pill-outline">
-            <Download size={16} />
-            Download Resume
-          </a>
+          <button onClick={() => setIsCvModalOpen(true)} className="btn-pill-outline">
+            <Eye size={16} />
+            View Resume
+          </button>
           <a href="https://linkedin.com/in/debokti-ghosh" target="_blank" rel="noopener noreferrer" className="btn-pill-gradient">
             <LinkedInIcon size={16} />
             LinkedIn
@@ -234,6 +237,59 @@ export function HeroSection() {
           </a>
         </div>
       </div>
+
+      {/* CV Modal Popup */}
+      {isCvModalOpen && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6" 
+          style={{ background: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(4px)' }}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setIsCvModalOpen(false)
+          }}
+        >
+          <div className="relative w-full max-w-5xl h-[85vh] bg-[var(--surface)] border border-[var(--border)] rounded-xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+            {/* Header */}
+            <div 
+              className="flex items-center justify-between border-b border-[var(--border)] bg-[var(--bg)]"
+              style={{ padding: '16px 24px' }}
+            >
+              <h3 className="font-semibold text-[var(--text)] tracking-wide">Resume Preview</h3>
+              <div className="flex items-center gap-4">
+                <a 
+                  href="/assets/CV-Debokti_Ghosh_26.pdf" 
+                  download 
+                  className="btn-pill-gradient"
+                  style={{ 
+                    padding: '8px 16px', 
+                    fontSize: '0.75rem', 
+                    textTransform: 'uppercase', 
+                    fontWeight: 700, 
+                    letterSpacing: '0.05em' 
+                  }}
+                >
+                  <Download size={14} strokeWidth={2.5} style={{ marginRight: '4px' }} />
+                  Download
+                </a>
+                <button 
+                  onClick={() => setIsCvModalOpen(false)}
+                  className="rounded-full hover:bg-[rgba(255,255,255,0.1)] text-[var(--text-muted)] hover:text-[var(--text)] transition-colors"
+                  style={{ padding: '6px' }}
+                >
+                  <X size={20} />
+                </button>
+              </div>
+            </div>
+            {/* PDF Viewer */}
+            <div className="flex-1 w-full bg-zinc-950 relative">
+              <iframe 
+                src="/assets/CV-Debokti_Ghosh_26.pdf#toolbar=0" 
+                className="w-full h-full border-none"
+                title="CV Preview"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

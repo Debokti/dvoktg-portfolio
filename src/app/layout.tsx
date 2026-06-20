@@ -1,7 +1,15 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { ThemeProvider } from '@/components/ThemeProvider'
+import { Cormorant_Garamond } from 'next/font/google'
 
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  variable: '--font-cormorant',
+  display: 'swap',
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+})
 export const metadata: Metadata = {
   title: 'Debokti Ghosh | Front-end Engineer & AI Integration Specialist',
   description:
@@ -32,7 +40,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body suppressHydrationWarning>
+      <body suppressHydrationWarning className={`${cormorant.variable}`}>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

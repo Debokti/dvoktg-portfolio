@@ -11,11 +11,11 @@ const experiences = [
     role: 'Offshore Lead & Web Developer',
     period: 'Nov 2024 — Present',
     year: '2024 - Now',
-    client: 'Citibank ICG',
+    client: 'Citi ICG',
     color: '#2563eb',
     current: true,
     bullets: [
-      'Leading offshore CAP item project delivery for Citibank\'s ICG Trade Loans platform.',
+      'Leading offshore CAP item project delivery for Citi\'s ICG Trade Loans platform.',
       'Developing Angular libraries and module federation architectures for enterprise-scale deployments.',
       'Debugging and enhancing Angular components integrated with legacy Java/JSP systems, drastically reducing production issue resolution time.',
       'Utilizing data wrangling techniques to validate large JSON API responses for Trade Loan services.',

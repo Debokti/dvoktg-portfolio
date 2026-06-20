@@ -5,6 +5,7 @@ import { HeroSection } from '@/components/HeroSection'
 import { ToolboxSection } from '@/components/ToolboxSection'
 import { ExperienceSection } from '@/components/ExperienceSection'
 import { EducationSection } from '@/components/EducationSection'
+import { QuoteSpread } from '@/components/QuoteSpread'
 import { ProjectsSection } from '@/components/ProjectsSection'
 import { AboutSection } from '@/components/AboutSection'
 import { Heart } from 'lucide-react'
@@ -21,6 +22,7 @@ export default function Home() {
         <ToolboxSection />
         <ExperienceSection />
         <EducationSection />
+        <QuoteSpread />
         <ProjectsSection />
         <AboutSection />
       </main>

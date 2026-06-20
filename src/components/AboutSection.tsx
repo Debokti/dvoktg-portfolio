@@ -56,7 +56,7 @@ export function AboutSection() {
               className="about-highlight"
               style={{ background: 'rgba(37,99,235,0.08)', color: '#2563eb' }}
             >
-              Citibank&apos;s ICG Trade Loans
+              Tata Consultancy Services (Citi's ICG Trade Loans)
             </span>
             .
           </p>

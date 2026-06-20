@@ -90,29 +90,29 @@ export function EducationSection() {
               <div key={idx} className="relative">
 
                 {/* ── Mobile layout ── */}
-                <div className="md:hidden -mx-6 px-6">
-                  {/* Per-entry left border line */}
-                  <div
-                    className="absolute top-0 bottom-0 left-0 w-[3px] rounded-sm"
-                    style={{ background: 'linear-gradient(180deg, #b265ff, #ff4400)' }}
-                  />
-                  <div className="pl-5">
-                    {/* Year + dot row */}
-                    <div className="flex items-center gap-2 mb-2 relative">
-                      <div
-                        className="absolute -left-[19px] top-1/2 -translate-y-1/2 w-[13px] h-[13px] rounded-full border-[2px] border-[var(--bg)] z-10"
-                        style={{ background: 'linear-gradient(135deg, #b265ff, #ff4400)' }}
-                      />
-                      <span style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text-muted)' }}>
-                        {edu.year}
-                      </span>
-                    </div>
-                    <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text)', marginBottom: '4px' }}>
-                      {edu.degree}
-                    </h3>
-                    <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{edu.location}</p>
+                <div
+                  className="md:hidden pl-5 py-1"
+                  style={{ borderLeft: '3px solid #b265ff' }}
+                >
+                  {/* Year + inline dot row */}
+                  <div className="flex items-center gap-2 mb-2">
+                    <div
+                      className="w-[11px] h-[11px] rounded-full shrink-0 -ml-[20px] mr-1"
+                      style={{
+                        background: 'linear-gradient(135deg, #b265ff, #ff4400)',
+                        boxShadow: '0 0 0 2px var(--bg)',
+                      }}
+                    />
+                    <span style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text-muted)' }}>
+                      {edu.year}
+                    </span>
                   </div>
+                  <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text)', marginBottom: '4px' }}>
+                    {edu.degree}
+                  </h3>
+                  <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{edu.location}</p>
                 </div>
+
 
 
                 {/* ── Desktop layout ── */}

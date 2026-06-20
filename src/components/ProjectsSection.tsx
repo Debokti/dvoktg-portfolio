@@ -23,7 +23,7 @@ const projects = [
       'Engineered complex request, attachment, and rekey workflows resolving state loss on navigation and ensuring strict data retention across multi-page transitions for banking applications.',
     language: 'Angular',
     langColor: '#dd0031',
-    badge: 'Citibank ICG',
+    badge: 'TCS Financial Services',
     badgeColor: '#2563eb',
     icon: Lock,
     tags: ['Angular', 'RxJS', 'ag-Grid', 'Java/Spring Boot', 'Trade Finance'],

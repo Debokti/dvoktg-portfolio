@@ -80,7 +80,7 @@ export function HeroSection() {
           <div className="flex flex-col gap-6 md:gap-8 items-center md:items-end order-2 md:order-1 text-center md:text-right">
             {/* Location */}
             <div>
-              <div className="flex items-center gap-2 justify-center md:justify-end mb-1">
+              <div className="flex items-center gap-3 justify-center md:justify-end mb-1">
                 <StarIcon size={20} color="#b265ff" />
                 <span style={{ fontWeight: 700, fontSize: '1.15rem', color: 'var(--text)' }}>
                   Kolkata, India
@@ -212,8 +212,8 @@ export function HeroSection() {
               <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                 Currently at
               </p>
-              <p style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--text)' }}>Tata Consultancy</p>
-              <p style={{ fontSize: '0.78rem', color: '#b265ff', fontWeight: 500 }}>Citibank ICG Trade Loans</p>
+              <p style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--text)' }}>Tata Consultancy Services Ltd</p>
+              <p style={{ fontSize: '0.78rem', color: '#b265ff', fontWeight: 500 }}>Trade Loans</p>
             </div>
           </div>
         </div>
